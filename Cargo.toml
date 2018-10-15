@@ -1,0 +1,6 @@
+[package]
+name = "rim"
+version = "0.1.0"
+authors = ["steavot <tomsteavenson@gmail.com>"]
+
+[dependencies]

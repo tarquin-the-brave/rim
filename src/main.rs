@@ -1,6 +1,8 @@
 use std::env;
 use std::fs;
 
+mod dirstack;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let file = &args[1];

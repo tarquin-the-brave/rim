@@ -9,6 +9,7 @@ fn main() -> std::io::Result<()> {
     let file_type = fs::metadata(&file)?.file_type();
     if file_type.is_dir() {
         fs::remove_dir_all(&file)
+        // delete from $DIRSTACK if needed.
     } else {
         fs::remove_file(&file)
     }

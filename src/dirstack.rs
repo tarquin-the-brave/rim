@@ -2,14 +2,14 @@
 use std::str;
 
 pub struct DirStack {
-    dirstack: Vec<String>
+    dirstack: Vec<&str>
 }
 
 impl DirStack {
     // new: pass is a string of space separated directories as in environment variable $DIRSTACK
     // and create a DirStack structure.
     pub fn new(dirstack_str: String) -> DirStack {
-        DirStack { dirstack: str::split_whitespace(&dirstack_str).map(|s| String::from(s)).collect() }
+        DirStack { dirstack: str::split_whitespace(&dirstack_str).collect() }
     }
 }
 

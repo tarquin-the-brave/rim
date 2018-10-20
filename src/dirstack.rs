@@ -6,10 +6,22 @@ pub struct DirStack<'a> {
 }
 
 impl<'a> DirStack<'a> {
-    // new: pass is a string of space separated directories as in environment variable $DIRSTACK
+    // new: pass in a str of space separated directories as in environment variable $DIRSTACK
     // and create a DirStack structure.
     pub fn new(dirstack_str: &'a str) -> DirStack<'a> {
         DirStack { dirstack: str::split_whitespace(dirstack_str).collect() }
+    }
+
+    pub fn contains(&self, directory: &str) -> bool {
+        self.dirstack.contains(&directory)
+    }
+
+    pub fn remove(&mut self, directory: &str) -> () {
+        self.dirstack.retain(|&dir| dir != directory);
+    }
+
+    pub fn to_string(&self) -> String {
+        self.dirstack.join(" ")
     }
 }
 
